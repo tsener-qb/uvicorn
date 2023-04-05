@@ -1,0 +1,26 @@
+{
+  "extends": [
+    "config:base"
+  ],
+  "prConcurrentLimit": 5,
+  "rebaseWhen": "never",
+  "masterIssue": true,
+  "pip_requirements": {
+    "fileMatch": ["requirements.txt", "requirements-*.txt", "constraints.txt", "constraints-test.txt"]
+  },
+  "ignorePaths" : ["composer/**/constraints.txt", "composer/blog/**/constraints.txt", "composer/airflow_1_samples/requirements.txt"],
+  "packageRules": [
+    {
+      "packagePatterns": ["pytest"],
+      "separateMinorPatch": true
+    },
+    {
+    "includeForks": true
+    },
+    {
+      "packagePatterns": ["pytest"],
+      "updateTypes": ["patch"],
+      "enabled": true
+    }
+  ]
+}
